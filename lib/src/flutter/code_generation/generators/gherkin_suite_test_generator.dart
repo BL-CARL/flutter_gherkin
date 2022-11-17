@@ -57,7 +57,7 @@ Future<void> executeTestSuite({
   Timeout scenarioExecutionTimeout = const Timeout(const Duration(minutes: 10)),
   AppLifecyclePumpHandlerFn? appLifecyclePumpHandler,
   LiveTestWidgetsFlutterBindingFramePolicy? framePolicy,
-}) =>
+}) async =>
     _CustomGherkinIntegrationTestRunner(
       configuration: configuration,
       appMainFunction: appMainFunction,
@@ -172,14 +172,13 @@ class FeatureFileTestGeneratorVisitor extends FeatureFileVisitor {
   );
   ''';
   static const String stepTemplate = '''
-(TestDependencies dependencies, bool skip,) async {
-  return runStep(
+(TestDependencies dependencies, bool skip,) async => runStep(
     name: '{{step_name}}',
     multiLineStrings: {{step_multi_line_strings}},
     table: {{step_table}},
     dependencies: dependencies,
     skip: skip,
-  );}
+  );
   ''';
   static const String onBeforeScenarioRun = '''
   onBefore: () async => onBeforeRunFeature(
