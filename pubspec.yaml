@@ -20,8 +20,8 @@ dependencies:
   collection: ^1.15.0
   gherkin:
     git:
-      url: https://github.com/youssef-t/dart_gherkin.git
-      ref: d1e5835243ef945809ae934f48e3003f4a042b75
+      url: https://github.com/jonsamwell/dart_gherkin.git
+      ref: master
   source_gen: ^1.1.1
   build: ^2.1.1
   glob: ^2.0.2
