@@ -178,10 +178,10 @@ abstract class GherkinIntegrationTestRunner {
       testWidgets(
         name,
         (WidgetTester tester) async {
+          bool failed = true;
           if (onBefore != null) {
             await onBefore();
           }
-          bool failed = false;
 
           final debugInformation = RunnableDebugInformation(path, 0, name);
           final scenarioTags = (tags ?? const Iterable<Tag>.empty()).map(
@@ -223,16 +223,17 @@ abstract class GherkinIntegrationTestRunner {
               try {
                 final result = await steps[i](dependencies, hasToSkip);
                 if (_isNegativeResult(result.result)) {
-                  failed = true;
                   hasToSkip = true;
                 }
               } catch (err, st) {
-                failed = true;
                 hasToSkip = true;
-
                 await reporter.onException(err, st);
               }
             }
+            failed = hasToSkip;
+          } catch(err, st) {
+            failed = true;
+            await reporter.onException(err, st);
           } finally {
             await reporter.scenario.onFinished.invoke(
               ScenarioMessage(
