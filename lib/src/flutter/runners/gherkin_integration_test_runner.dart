@@ -11,29 +11,29 @@ enum AppLifecyclePhase {
 }
 
 typedef StepFn = Future<StepResult> Function(
-  TestDependencies dependencies,
-  bool skip,
-);
+    TestDependencies dependencies,
+    bool skip,
+    );
 
 typedef StartAppFn = Future<void> Function(World world);
 typedef AppLifecyclePumpHandlerFn = Future<void> Function(
-  AppLifecyclePhase phase,
-  WidgetTester tester,
-);
+    AppLifecyclePhase phase,
+    WidgetTester tester,
+    );
 
 class TestDependencies {
   final World world;
   final AttachmentManager attachmentManager;
 
   TestDependencies(
-    this.world,
-    this.attachmentManager,
-  );
+      this.world,
+      this.attachmentManager,
+      );
 }
 
 abstract class GherkinIntegrationTestRunner {
   final TagExpressionEvaluator _tagExpressionEvaluator =
-      TagExpressionEvaluator();
+  TagExpressionEvaluator();
   final FlutterTestConfiguration configuration;
   final StartAppFn appMainFunction;
   final AppLifecyclePumpHandlerFn? appLifecyclePumpHandler;
@@ -83,7 +83,7 @@ abstract class GherkinIntegrationTestRunner {
     _binding.framePolicy = framePolicy ?? _binding.framePolicy;
 
     tearDownAll(
-      () async {
+          () async {
         await onRunComplete();
       },
     );
@@ -131,7 +131,7 @@ abstract class GherkinIntegrationTestRunner {
   }) async {
     final debugInformation = RunnableDebugInformation(path, 0, name);
     final featureTags =
-        (tags ?? const Iterable<Tag>.empty()).map((t) => Tag(t.toString(), 0));
+    (tags ?? const Iterable<Tag>.empty()).map((t) => Tag(t.toString(), 0));
     await reporter.feature.onStarted.invoke(
       FeatureMessage(
         name: name,
@@ -158,7 +158,7 @@ abstract class GherkinIntegrationTestRunner {
         tags: (tags ?? const Iterable<String>.empty())
             .map(
               (t) => Tag(t.toString(), 0),
-            )
+        )
             .toList(growable: false),
       ),
     );
@@ -177,7 +177,7 @@ abstract class GherkinIntegrationTestRunner {
     if (_evaluateTagFilterExpression(configuration.tagExpression, tags)) {
       testWidgets(
         name,
-        (WidgetTester tester) async {
+            (WidgetTester tester) async {
           bool failed = true;
           if (onBefore != null) {
             await onBefore();
@@ -185,7 +185,7 @@ abstract class GherkinIntegrationTestRunner {
 
           final debugInformation = RunnableDebugInformation(path, 0, name);
           final scenarioTags = (tags ?? const Iterable<Tag>.empty()).map(
-            (t) => Tag(t.toString(), 0),
+                (t) => Tag(t.toString(), 0),
           );
           final dependencies = await createTestDependencies(
             configuration,
@@ -278,9 +278,9 @@ abstract class GherkinIntegrationTestRunner {
 
   @protected
   Future<void> startApp(
-    WidgetTester tester,
-    World world,
-  ) async {
+      WidgetTester tester,
+      World world,
+      ) async {
     await appMainFunction(world);
 
     // need to pump so app is initialised
@@ -289,12 +289,12 @@ abstract class GherkinIntegrationTestRunner {
 
   @protected
   Future<TestDependencies> createTestDependencies(
-    TestConfiguration configuration,
-    WidgetTester tester,
-  ) async {
+      TestConfiguration configuration,
+      WidgetTester tester,
+      ) async {
     World? world;
     final attachmentManager =
-        await configuration.getAttachmentManager(configuration);
+    await configuration.getAttachmentManager(configuration);
 
     if (configuration.createWorld != null) {
       world = await configuration.createWorld!(configuration);
@@ -331,7 +331,7 @@ abstract class GherkinIntegrationTestRunner {
 
     try {
       final executable = _executableSteps!.firstWhereOrNull(
-        (s) => s.expression.isMatch(name),
+            (s) => s.expression.isMatch(name),
       );
 
       if (executable == null) {
@@ -418,8 +418,8 @@ abstract class GherkinIntegrationTestRunner {
   }
 
   Iterable<CustomParameter> _registerCustomParameters(
-    Iterable<CustomParameter>? customParameters,
-  ) {
+      Iterable<CustomParameter>? customParameters,
+      ) {
     final parameters = <CustomParameter>[];
 
     parameters.add(FloatParameterLower());
@@ -441,16 +441,16 @@ abstract class GherkinIntegrationTestRunner {
   }
 
   Iterable<ExecutableStep> _registerStepDefinitions(
-    Iterable<StepDefinitionGeneric> stepDefinitions,
-    Iterable<CustomParameter> customParameters,
-  ) {
+      Iterable<StepDefinitionGeneric> stepDefinitions,
+      Iterable<CustomParameter> customParameters,
+      ) {
     return stepDefinitions
         .map(
           (s) => ExecutableStep(
-            GherkinExpression(s.pattern as RegExp, customParameters),
-            s,
-          ),
-        )
+        GherkinExpression(s.pattern as RegExp, customParameters),
+        s,
+      ),
+    )
         .toList(growable: false);
   }
 
@@ -473,10 +473,10 @@ abstract class GherkinIntegrationTestRunner {
   }
 
   Future<void> _onAfterStepRun(
-    String step,
-    StepResult result,
-    TestDependencies dependencies,
-  ) async {
+      String step,
+      StepResult result,
+      TestDependencies dependencies,
+      ) async {
     await hook.onAfterStep(
       dependencies.world,
       step,
@@ -508,21 +508,21 @@ abstract class GherkinIntegrationTestRunner {
         context: RunnableDebugInformation('', 0, step),
         table: table,
         multilineString:
-            multiLineStrings.isNotEmpty ? multiLineStrings.first : null,
+        multiLineStrings.isNotEmpty ? multiLineStrings.first : null,
       ),
     );
   }
 
   bool _evaluateTagFilterExpression(
-    String? tagExpression,
-    Iterable<String>? tags,
-  ) {
+      String? tagExpression,
+      Iterable<String>? tags,
+      ) {
     return tagExpression == null || tagExpression.isEmpty
         ? true
         : _tagExpressionEvaluator.evaluate(
-            tagExpression,
-            tags!.toList(growable: false),
-          );
+      tagExpression,
+      tags!.toList(growable: false),
+    );
   }
 
   bool _isNegativeResult(StepExecutionResult result) {
@@ -532,9 +532,9 @@ abstract class GherkinIntegrationTestRunner {
   }
 
   Future<void> _appLifecyclePhasePumper(
-    AppLifecyclePhase phase,
-    WidgetTester tester,
-  ) async {
+      AppLifecyclePhase phase,
+      WidgetTester tester,
+      ) async {
     if (appLifecyclePumpHandler != null) {
       await appLifecyclePumpHandler!(phase, tester);
     } else {
