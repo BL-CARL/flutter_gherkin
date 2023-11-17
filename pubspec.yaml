@@ -18,7 +18,11 @@ dependencies:
     sdk: flutter
   analyzer: '>=2.1.0 < 6.0.0'
   collection: ^1.15.0
-  gherkin: ^3.1.0
+  gherkin:
+    # FIXME This dependency must be removed after the merge of this PR: https://github.com/jonsamwell/dart_gherkin/pull/71
+    git:
+      url: https://github.com/youssef-t/dart_gherkin.git
+      ref: v3.2.0-rc.1
   source_gen: ^1.1.1
   build: ^2.1.1
   glob: ^2.0.2

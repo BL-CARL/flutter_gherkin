@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_gherkin/flutter_gherkin.dart';
 import 'package:gherkin/gherkin.dart';
 import 'package:flutter/widgets.dart';
@@ -340,7 +342,7 @@ abstract class GherkinIntegrationTestRunner {
         throw GherkinStepNotDefinedException(message);
       }
 
-      var parameters = _getStepParameters(
+      var parameters = await _getStepParameters(
         step: name,
         multiLineStrings: multiLineStrings,
         table: table,
@@ -455,15 +457,15 @@ abstract class GherkinIntegrationTestRunner {
         .toList(growable: false);
   }
 
-  Iterable<dynamic> _getStepParameters({
+  FutureOr<Iterable<dynamic>> _getStepParameters({
     required String step,
     required Iterable<String> multiLineStrings,
     required ExecutableStep code,
     GherkinTable? table,
-  }) {
-    var parameters = code.expression.getParameters(step);
+  }) async {
+    var parameters = await code.expression.getParameters(step);
     if (multiLineStrings.isNotEmpty) {
-      parameters = parameters.toList()..addAll(multiLineStrings);
+      parameters =  parameters.toList()..addAll(multiLineStrings);
     }
 
     if (table != null) {
