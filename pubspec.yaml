@@ -22,7 +22,7 @@ dependencies:
     # FIXME This dependency must be removed after the merge of this PR: https://github.com/jonsamwell/dart_gherkin/pull/71
     git:
       url: https://github.com/youssef-t/dart_gherkin.git
-      ref: v3.2.0-rc.1
+      ref: v3.2.0-rc.2
   source_gen: ^1.1.1
   build: ^2.1.1
   glob: ^2.0.2

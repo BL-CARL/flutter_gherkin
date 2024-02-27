@@ -209,8 +209,8 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: "v3.2.0-rc.1"
-      resolved-ref: de5c90426053b11ee6f087ddf245db603ae55c32
+      ref: "v3.2.0-rc.2"
+      resolved-ref: "53d497a2f57e0cbe62c645064e75dfc457ad38f8"
       url: "https://github.com/youssef-t/dart_gherkin.git"
     source: git
     version: "3.1.0"
