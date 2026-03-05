@@ -21,8 +21,7 @@ Future<void> main() {
   driverLog = logDriverMessages;
   // The Gherkin report data send back to this runner by the app after
   // the tests have run will be saved to this directory
-  integration_test_driver.testOutputsDirectory =
-      'integration_test/gherkin/reports';
+  // testOutputsDirectory is defined by an env variable: Platform.environment['FLUTTER_TEST_OUTPUTS_DIR']
 
   return integrationDriver();
 }

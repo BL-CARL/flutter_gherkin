@@ -108,7 +108,7 @@ class _HomeViewState extends State<HomeView> with ViewUtilsMixin {
                                 todo.action!,
                                 style: Theme.of(context)
                                     .textTheme
-                                    .bodyText1!
+                                    .bodyLarge!
                                     .copyWith(
                                       decoration:
                                           todo.status == TodoStatus.complete

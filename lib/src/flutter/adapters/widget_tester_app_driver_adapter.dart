@@ -76,7 +76,7 @@ class WidgetTesterAppDriverAdapter
     RenderObject? renderObject = binding.renderViewElement?.renderObject;
     if (renderObject != null) {
       while (!renderObject!.isRepaintBoundary) {
-        renderObject = renderObject.parent as RenderObject?;
+        renderObject = renderObject.parent;
         assert(renderObject != null);
       }
 

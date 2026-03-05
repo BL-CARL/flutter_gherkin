@@ -4,7 +4,7 @@ version: 3.0.0-rc.17
 homepage: https://github.com/jonsamwell/flutter_gherkin
 
 environment:
-  sdk: ">=2.17.0 <4.0.0"
+  sdk: ">=3.8.1 <4.0.0"
   flutter: ">=2.2.0"
 
 dependencies:
@@ -16,22 +16,20 @@ dependencies:
     sdk: flutter
   flutter_driver:
     sdk: flutter
-  analyzer: '>=2.1.0'
-  collection: ^1.15.0
+  analyzer: ^10.0.1
+  collection: ^1.19.1
   gherkin:
-    # FIXME This dependency must be removed after the merge of this PR: https://github.com/jonsamwell/dart_gherkin/pull/71
     git:
-      url: https://github.com/youssef-t/dart_gherkin.git
-      ref: v3.2.0-rc.2
-  source_gen: ^1.1.1
-  build: ^2.1.1
-  glob: ^2.0.2
+      # FIXME This dependency must be removed after the merge of this PR: https://github.com/jonsamwell/dart_gherkin/pull/71
+      url: https://github.com/BL-CARL/dart_gherkin.git
+      ref: c335169f04e3d14c1f104a65a47ce0f3b02a911d
+  source_gen: ^4.2.0
+  build: ^4.0.4
+  glob: ^2.1.3
 
 dev_dependencies:
-  meta: '>=1.7.0 < 2.0.0'
-  pedantic: ^1.11.1
-  build_config: ^1.0.0
-  flutter_lints: ^2.0.1
-  dart_code_metrics: ^4.16.0
+  meta: any
+  build_config: ^1.3.0
+  flutter_lints: ^6.0.0
 
 flutter:

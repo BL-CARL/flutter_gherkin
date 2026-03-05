@@ -50,7 +50,7 @@ class _AddTodoComponentState extends State<AddTodoComponent>
                 width: 200,
                 child: TextFormField(
                   controller: _textEditingController,
-                  style: Theme.of(context).textTheme.subtitle1,
+                  style: Theme.of(context).textTheme.titleMedium,
                   key: const Key('todo'),
                   decoration: InputDecoration(
                     labelText: 'Add todo item...  ',
