@@ -1,4 +1,4 @@
-import 'package:gherkin/gherkin.dart';
+import 'package:carlbl_gherkin/gherkin.dart';
 
 /// An annotation used to specify a class to generate Gherkin tests that adhere
 /// to the style required by the integration_test package

@@ -1,4 +1,4 @@
-name: flutter_gherkin
+name: carlbl_flutter_gherkin
 description: A Gherkin / Cucumber parser and test runner for Dart and Flutter
 version: 3.0.0-rc.17
 homepage: https://github.com/jonsamwell/flutter_gherkin
@@ -18,11 +18,11 @@ dependencies:
     sdk: flutter
   analyzer: '>=2.1.0'
   collection: ^1.15.0
-  gherkin:
+  carlbl_gherkin:
     # FIXME This dependency must be removed after the merge of this PR: https://github.com/jonsamwell/dart_gherkin/pull/71
     git:
-      url: https://github.com/youssef-t/dart_gherkin.git
-      ref: v3.2.0-rc.2
+      url: https://github.com/BL-CARL/dart_gherkin.git
+      ref: 7d72618da62ab7ecff245efea93df388a2de77fd
   source_gen: ^1.1.1
   build: ^2.1.1
   glob: ^2.0.2
@@ -32,6 +32,5 @@ dev_dependencies:
   pedantic: ^1.11.1
   build_config: ^1.0.0
   flutter_lints: ^2.0.1
-  dart_code_metrics: ^4.16.0
 
 flutter:

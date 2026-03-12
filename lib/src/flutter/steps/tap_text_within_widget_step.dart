@@ -1,5 +1,5 @@
-import 'package:flutter_gherkin/flutter_gherkin.dart';
-import 'package:gherkin/gherkin.dart';
+import 'package:carlbl_flutter_gherkin/flutter_gherkin.dart';
+import 'package:carlbl_gherkin/gherkin.dart';
 
 /// Taps a widget that contains the text within another widget.
 /// If the text is not visible, the ancestor will be scrolled.

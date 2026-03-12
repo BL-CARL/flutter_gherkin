@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
-import 'package:flutter_gherkin/flutter_gherkin.dart';
-import 'package:gherkin/gherkin.dart';
+import 'package:carlbl_flutter_gherkin/flutter_gherkin.dart';
+import 'package:carlbl_gherkin/gherkin.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 /// Shows an example of using the `WidgetTester` from the `World` context rather than
