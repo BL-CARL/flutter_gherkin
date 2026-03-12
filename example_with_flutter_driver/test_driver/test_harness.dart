@@ -1,6 +1,6 @@
 import 'dart:async';
-import 'package:flutter_gherkin/flutter_gherkin_with_driver.dart';
-import 'package:gherkin/gherkin.dart';
+import 'package:carlbl_flutter_gherkin/flutter_gherkin_with_driver.dart';
+import 'package:carlbl_gherkin/gherkin.dart';
 
 Future<void> main() {
   final config = FlutterDriverTestConfiguration(

@@ -1,5 +1,5 @@
-import 'package:flutter_gherkin/flutter_gherkin.dart';
-import 'package:gherkin/gherkin.dart';
+import 'package:carlbl_flutter_gherkin/flutter_gherkin.dart';
+import 'package:carlbl_gherkin/gherkin.dart';
 
 /// Pauses the execution for the provided number of seconds.
 /// Handy when you want to pause to check something.

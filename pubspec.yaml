@@ -1,4 +1,4 @@
-name: flutter_gherkin
+name: carlbl_flutter_gherkin
 description: A Gherkin / Cucumber parser and test runner for Dart and Flutter
 version: 3.0.0-rc.17
 homepage: https://github.com/jonsamwell/flutter_gherkin

@@ -1,6 +1,6 @@
-import 'package:flutter_gherkin/flutter_gherkin.dart';
+import 'package:carlbl_flutter_gherkin/flutter_gherkin.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gherkin/gherkin.dart';
+import 'package:carlbl_gherkin/gherkin.dart';
 
 import 'gherkin/configuration.dart';
 

@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-import 'package:flutter_gherkin/src/flutter/configuration/build_mode.dart';
-import 'package:gherkin/gherkin.dart';
+import 'package:carlbl_flutter_gherkin/src/flutter/configuration/build_mode.dart';
+import 'package:carlbl_gherkin/gherkin.dart';
 
 class FlutterRunProcessHandler extends ProcessHandler {
   // the flutter process usually outputs something like the below to indicate the app is ready to be connected to
