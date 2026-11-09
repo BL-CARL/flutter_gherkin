@@ -78,12 +78,14 @@ Future<void> executeTestSuite({
     _languageService.initialise(
       annotation.read('featureDefaultLanguage').literalValue.toString(),
     );
-    final idx = annotation
-        .read('executionOrder')
-        .objectValue
-        .getField('index')!
-        .toIntValue()!;
-    final executionOrder = ExecutionOrder.values[idx];
+    // source_gen 1.x lève une exception sur `objectValue` quand la valeur est absente :
+    // on retombe alors sur la valeur par défaut de l'annotation (ExecutionOrder.random).
+    final executionOrderReader = annotation.read('executionOrder');
+    final ExecutionOrder executionOrder = executionOrderReader.isNull
+        ? ExecutionOrder.random
+        : ExecutionOrder.values[executionOrderReader.objectValue
+            .getField('index')!
+            .toIntValue()!];
     final featureFiles = annotation
         .read('featurePaths')
         .listValue
