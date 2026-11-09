@@ -23,7 +23,7 @@ dependencies:
     git:
       url: https://github.com/BL-CARL/dart_gherkin.git
       ref: 6bf01b803fb1ab314d383e1f770742bf82052bf3
-  source_gen: ^2.0.0
+  source_gen: ^1.5.0
   build: ^2.1.1
   glob: ^2.0.2
 
